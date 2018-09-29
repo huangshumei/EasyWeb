@@ -77,9 +77,6 @@ public class RoleController {
     })
     @DeleteMapping("/{id}")
     public JsonResult delete(@PathVariable("id") String roleId) {
-        if (true) {
-            return JsonResult.error("演示系统关闭该功能");
-        }
         if (roleService.updateState(roleId, 1)) {
             return JsonResult.ok("删除成功");
         }

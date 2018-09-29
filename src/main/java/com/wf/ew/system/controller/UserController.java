@@ -108,9 +108,6 @@ public class UserController extends BaseController {
     })
     @PutMapping("/state")
     public JsonResult updateState(String userId, Integer state) {
-        if (true) {
-            return JsonResult.error("演示系统关闭该功能");
-        }
         if (userService.updateState(userId, state)) {
             return JsonResult.ok();
         } else {
@@ -126,9 +123,6 @@ public class UserController extends BaseController {
     })
     @PutMapping("/psw")
     public JsonResult updatePsw(String oldPsw, String newPsw) {
-        if (true) {
-            return JsonResult.error("演示系统关闭该功能");
-        }
         String finalSecret = "{bcrypt}" + new BCryptPasswordEncoder().encode(oldPsw);
         if (finalSecret.equals(getLoginUser().getPassword())) {
             return JsonResult.error("原密码输入不正确");
